@@ -1,0 +1,721 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Tajawal', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #4070f4; */
+  background: linear-gradient(135deg, #6f86d6, #48c6ef);
+}
+
+/* Begin for header and logo */
+.container-communication {
+  text-align: center;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 550px;
+}
+
+.logo-iraqi {
+  max-width: 150px;
+  margin: 0 auto;
+  display: block;
+  border: 3px solid #0078d7;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle at center, #e0f7ff, transparent 70%);
+  padding: 0px;
+  box-shadow: 0 0 15px rgba(0, 120, 215, 0.6);
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1px;
+  gap: 15px;
+}
+
+.header img {
+  margin-left: 2px;
+  width: 150px;
+  height: 150px;
+}
+
+.cairo-play{
+  background: linear-gradient(to left,rgba(116, 235, 213 ,0.6), rgba(159, 172, 230 ,0));
+  border-radius: 12px;
+  padding: 5px;
+}
+
+h2{
+  background: linear-gradient(to left,rgba(116, 235, 213 ,0.6), rgba(159, 172, 230 ,0));
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.card-title {
+  color: #333;
+  margin: 0px 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  font-size: 2.47rem;
+  font-weight: 300;
+  font-family: "Tajawal", serif;
+  font-style: normal;
+}
+/* End for code header and logo */
+
+.container {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 6px;
+  padding: 30px;
+  margin: 0 15px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container header {
+  position: relative;
+  font-size: 1.47rem;
+  font-weight: 300;
+  color: #475f78;
+  font-family: "Tajawal", serif;
+  font-style: normal;
+}
+
+.container form {
+  position: relative;
+  margin-top: 16px;
+  min-height: 490px;
+  background-color: #fff;
+  overflow: hidden;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.container form .form {
+  position: absolute;
+  background-color: #fff;
+  transition: 0.3s ease;
+}
+
+.container form .form.second {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100%);
+}
+
+form.secActive .form.second {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+form.secActive .form.first {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+}
+
+.container form .title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #475f78;
+  font-family: "Tajawal", serif;
+  font-style: normal;
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: 12px;
+  background: linear-gradient(to left,rgba(116, 235, 213 ,0.3), rgba(159, 172, 230 ,0));
+
+}
+
+.container form .fields {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+form .fields .input-field {
+  display: flex;
+  width: calc(100% / 3 - 15px);
+  flex-direction: column;
+  margin: 4px 0;
+}
+
+.input-field label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2e2e2e;
+  font-family: "Tajawal", serif;
+}
+
+.yearPerson{
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bolder;
+  width: 100px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+.yearPerson::placeholder{
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.yearPerson:hover {
+  border-color: #0056b3;
+  color: #0056b3;
+}
+
+.year-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 150px;
+  background-color: #333;
+  color: #fff;
+  text-align: right;
+  padding: 8px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.year-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.input-field input,
+select {
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  padding: 0 15px;
+  height: 42px;
+  margin: 8px 0;
+}
+
+.input-field input :focus,
+.input-field select:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.input-field select,
+.input-field input[type="date"] {
+  color: #707070;
+}
+
+.input-field input[type="date"]:valid {
+  color: #333;
+}
+
+.container form button,
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width: 200px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 5px;
+  margin: 25px 0;
+  /* background-color: #4070f4; */
+  background-color: #43DEAF ;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.container form .btnText {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+form button:hover {
+  background-color: #265df2;
+}
+
+form button i,
+form .backBtn i {
+  margin: 0 6px;
+}
+form .backBtn:hover{
+  background-color: #265df2;
+}
+
+form .backBtn i {
+  transform: rotate(180deg);
+}
+
+form .buttons {
+  display: flex;
+  align-items: center;
+}
+
+form .buttons button,
+.backBtn {
+  margin-right: 14px;
+}
+
+input:required {
+  border-left: 3px solid #ff4d4d;
+}
+
+input.telephone{
+  text-align: right;
+}
+
+/* for PopUp */
+.overlay {
+  position: fixed;
+  z-index: 100;
+  display: none;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+.popup h2 {
+  color: #333;
+  font-weight: 700;
+}
+.popup p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.popup ul {
+  text-align: right;
+  direction: rtl;
+  padding: 0;
+  list-style: none;
+}
+.popup ul li {
+  background: #eef;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+}
+.popup button {
+  background-color: #43DEAF ;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+.popup button:hover {
+  background: #0056b3;
+  
+}
+/* End of PopUp */
+
+
+/* For the dropdown  */
+.dropdown {
+  position: relative;
+}
+
+.dropdown input[type="text"] {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out;
+  border: 1px solid gray;
+}
+
+.dropdown input[type="text"]:focus {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 5px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s;
+}
+
+.dropdown-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content a {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: background 0.2s, color 0.2s;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f4f8;
+  color: #4a90e2;
+}
+
+.icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #999;
+  pointer-events: none;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.dropdown input.active + .icon {
+  transform: translateY(-50%) rotate(180deg);
+  color: #4a90e2;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a90e2;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* End the dropdown */
+
+
+/* for date --- day-month-year */
+.container-date {
+  max-width: 350px;
+  text-align: center;
+}
+
+.date-field {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+/* End of date field */
+
+/* for container Year */
+select {
+  /* padding: 12px; */
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #4facfe;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  text-align: center;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+select:hover {
+  border-color: #00c3ff;
+  box-shadow: 0 4px 10px rgba(0, 195, 255, 0.2);
+}
+
+/* تخصيص شكل السهم الافتراضي للقائمة المنسدلة */
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  font-size: 14px;
+  color: #4facfe;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* تأثير الحركة عند تمرير الفأرة */
+.select-wrapper:hover::after {
+  transform: translateY(-70%);
+}
+/* End of container Year */
+
+/* for Upload CV */
+.container-cv {
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.upload-box {
+  width: 100%;
+  padding: 40px;
+  border: 2px dashed #007bff;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.upload-box img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.upload-box p{
+  font-size: 1.7rem;
+  font-weight: 300;
+  font-family: "Tajawal", serif;
+  color: #333;
+}
+.upload-box.dragover {
+  background-color: #d1ecf1;
+}
+.progress-container {
+  display: none;
+  width: 100%;
+  margin-top: 20px;
+  background: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  padding: 7px;
+}
+.progress-bar {
+  height: 20px;
+  width: 0;
+  background: #28a745;
+  transition: width 0.3s ease-in-out;
+  border-radius: 10px;
+}
+.progress-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+.file-info {
+  margin-top: 10px;
+  font-size: 16px;
+}
+.success-message {
+  display: none;
+  margin-top: 1px;
+  color: #28a745;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.error-message {
+  display: none;
+  color: red;
+  margin-top: 1px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .container-cv {
+      width: 90%;
+      padding: 15px;
+  }
+  .upload-box {
+      padding: 15px;
+      text-align: center;
+  }
+  .progress-container {
+      padding: 8px;
+  }
+  .progress-text {
+      font-size: 16px;
+  }
+  .success-message {
+      font-size: 16px;
+  }
+  .upload-box p{
+      font-size: 18px;
+      font-weight: 300;
+      font-family: "Tajawal", serif;
+      color: #333;
+  }
+}
+
+/* End of Upload CV */
+
+/* NoteBook */
+.note-container{
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+textarea {
+  width: 100%;
+  height: 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  resize: none;
+  outline: none;
+}
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+}
+/* End of NoteBook */
+
+/* تحسين عرض رأس الصفحة والشعار */
+@media screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header img {
+    width: 100px;
+    height: 100px;
+  }
+  .card-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    display: block;
+    text-align: center;
+  }
+  .header img {
+    margin: 0 auto 10px;
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Responsive media query code for small screens  === for design home page */
+@media (max-width: 750px) {
+  .container form {
+    overflow-y: scroll;
+  }
+
+  .container form::-webkit-scrollbar {
+    display: none;
+  }
+
+  form .fields .input-field {
+    width: calc(100% / 2 - 15px);
+  }
+
+}
+
+/* Responsive media query code for mobile screens */
+@media (max-width: 550px) {
+  form .fields .input-field {
+    width: 95%;
+  }
+}
+/* End Responsive media query code for mobile screens == for design home page */
+
+/* Responsive media query code for small screens  === for header and logo  */
+@keyframes glow {
+  0% { text-shadow: 2px 2px 4px rgba(0, 120, 215, 0.5); }
+  100% { text-shadow: 2px 2px 8px rgba(0, 120, 215, 0.8); }
+}
+
