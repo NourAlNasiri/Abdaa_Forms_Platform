@@ -1,0 +1,34 @@
+# ملفات النظام
+.DS_Store
+Thumbs.db
+
+# ملفات المحرر
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ملفات التبعيات
+node_modules/
+vendor/
+
+# ملفات البيئة
+.env
+.env.local
+.env.*.local
+
+# ملفات السجلات
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ملفات البناء
+dist/
+build/
+out/
+
+# ملفات مؤقتة
+*.tmp
+*.temp
+.cache/ 

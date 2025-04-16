@@ -2,23 +2,32 @@
 <html lang="ar" dir="rtl">
 
 <head>
+  <!-- ========== معلومات الصفحة الأساسية ========== -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>أستمارة أبداع</title>
-  <!----======== CSS ======== -->
-  <link rel="stylesheet" href="style.css">
-  <!----===== Iconscout CSS ===== -->
+
+  <!-- ========== ملفات التنسيق CSS ========== -->
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-  <link rel="shortcut icon" href="img/form.png" type="image/x-icon" />
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=print" />
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=print">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- ========== أيقونة الموقع ========== -->
+  <link rel="shortcut icon" href="assets/form.png" type="image/x-icon" />
+
+  <!-- ========== معلومات وصفية للموقع ========== -->
   <meta name="description" content="نظام التقديم على استمارة ابداع">
   <meta name="keywords" content="">
   <meta name="author" content="Nor AlNair">
+  <meta name="developer" content="نور الدين محمد - مطور واجهات أمامية">
+  <meta name="copyright" content="جميع الحقوق محفوظة &copy; 2025">
 </head>
 
 <body>
+  <!-- ========== نافذة منبثقة لعرض الشروط والأحكام ========== -->
   <div class="overlay" id="popupOverlay">
     <div class="popup">
       <h2 class="cairo-welcom">مرحبا بكم</h2>
@@ -27,46 +36,89 @@
         <li>يجب ان لا يقل عمر المتقدم عن 18 سنة </li>
         <li>استخدم رقم موبايل او بريد الالكتروني صالحًا للتواصل.</li>
         <li>صحة ودقة المعلومات المثبتة بالأستمارة ، مسؤولية المتقدم.</li>
-        <li>عليك التأكد من صحة البيانات المدخلة قبل الضغط على زر ارسال الخاص بالحفظ لعدم أمكانية العودة الى حقول الاستمارة.</li>
+        <li>عليك التأكد من صحة البيانات المدخلة قبل الضغط على زر ارسال الخاص بالحفظ لعدم أمكانية العودة الى حقول
+          الاستمارة.</li>
         <li>لطباعة البيانات المدخلة ، أضغط على زر طباعة المثبت بالاستمارة.</li>
         <li>عليك الاحتفاظ برقم الأستمارة الخاص بك بعد أستكمال عملية خزن البيانات.</li>
       </ul>
       <button onclick="closePopup()">حسنًا</button>
     </div>
   </div>
-  <div class="container">
 
-    <script src="toggleMode.js"></script>
-    <!-- Form header -->
-    <!-- <header>Registration</header> -->
+  <!-- ========== الحاوية الرئيسية للنموذج ========== -->
+  <div class="container">
+    <!-- ملف تبديل الوضع (الوضع الليلي/النهاري) -->
+    <script src="js/toggleMode.js"></script>
+
+    <!-- ========== رأس النموذج مع شعار وزارة الاتصالات ========== -->
     <div class="card-logo">
       <div class="container-communication">
         <div class="header">
           <img class="logo-iraqi" src="img/شعار_وزارة_الاتصالات_العراقية.png" alt="شعار وزارة الاتصالات العراقية">
           <div>
             <h1 class="card-title">وزارة الاتصالات العراقية</h1>
-            <header class="cairo-play">أستــــمــــــارة أبــــــــــــــــداع</header>
+            <header class="cairo-play">
+              أستــــمــــــارة أبــــــــــــــــداع
+              <span class="info-icon" onclick="toggleDeveloperInfo()"><i class="fas fa-info-circle"></i></span>
+            </header>
           </div>
         </div>
       </div>
     </div>
-    <!-- End of form header -->
-    <form action="#" onsubmit="submitForm(event)">
 
-      <!-- First section of the form -->
+    <!-- قسم معلومات المطور المنبثق -->
+    <div class="developer-info-popup" id="developerInfoPopup">
+      <div class="popup-content">
+        <div class="popup-header">
+          <h3>معلومات المطور</h3>
+          <button class="close-btn" onclick="toggleDeveloperInfo()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="popup-body">
+          <div class="developer-profile">
+            <img src="img/شعار_وزارة_الاتصالات_العراقية.png" alt="صورة المطور" class="developer-avatar">
+            <h4>نور الدين محمد جاسم</h4>
+            <p class="developer-title">مطور واجهات أمامية</p>
+          </div>
+          <div class="developer-details">
+            <div class="detail-item">
+              <i class="fas fa-code"></i>
+              <p>تطوير واجهات المستخدم</p>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-paint-brush"></i>
+              <p>تصميم واجهات تفاعلية</p>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-mobile-alt"></i>
+              <p>تصميم متجاوب</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <h5>أستمارة أبداع</h5>
+            <p>تم تطوير هذا الموقع لخدمة وزارة الاتصالات العراقية</p>
+            <p class="copyright">جميع الحقوق محفوظة &copy; 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== نموذج التقديم الرئيسي ========== -->
+    <form action="#" onsubmit="submitForm(event)">
+      <!-- ========== القسم الأول: المعلومات الشخصية ========== -->
       <div class="form first">
-        <!-- Personal details section -->
+        <!-- ===== قسم المعلومات الشخصية الأساسية ===== -->
         <div class="details personal">
           <span class="title">المعلومات الشخصية</span>
-
           <div class="fields">
-            <!-- Full Name input -->
+            <!-- حقل الاسم الكامل -->
             <div class="input-field">
               <label for="fullName">ألاسم الكامل</label>
               <input type="text" id="fullName" placeholder="أدخل أسمك الرباعي" autocomplete="on" autofocus required>
             </div>
 
-            <!-- dorp_down-->
+            <!-- قائمة اختيار مجال التقديم -->
             <div class="input-field">
               <label for="Prostration">التقديم على: </label>
               <div class="dropdown">
@@ -79,30 +131,46 @@
                 </div>
               </div>
             </div>
-            <!-- End of dorp_down-->
 
-            <!-- Date of Birth input -->
+            <!-- حقول تاريخ الميلاد -->
             <div class="input-field">
-              <label for="Year of birth">تاريخ الميلاد<span> *</span></label>
-              <div class="container-date">
+              <label for="birthDate">تاريخ الميلاد<span> *</span></label>
+              <div class="birth-date-container">
                 <div class="date-field">
-                  <select id="day" required>
-                    <option disabled selected>يوم</option>
+                  <select id="day" class="date-select" required>
+                    <option value="" disabled selected>يوم</option>
+                    <script>
+                      for (let i = 1; i <= 31; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                      }
+                    </script>
                   </select>
-
-                  <select id="month" required>
-                    <option disabled selected>شهر</option>
+                </div>
+                <div class="date-field">
+                  <select id="month" class="date-select" required>
+                    <option value="" disabled selected>شهر</option>
+                    <option value="1">يناير</option>
+                    <option value="2">فبراير</option>
+                    <option value="3">مارس</option>
+                    <option value="4">أبريل</option>
+                    <option value="5">مايو</option>
+                    <option value="6">يونيو</option>
+                    <option value="7">يوليو</option>
+                    <option value="8">أغسطس</option>
+                    <option value="9">سبتمبر</option>
+                    <option value="10">أكتوبر</option>
+                    <option value="11">نوفمبر</option>
+                    <option value="12">ديسمبر</option>
                   </select>
-                  <div class="year-container">
-                    <input type="text" class="yearPerson" id="yearInput" min="1966" max="2006" placeholder="سنة " required>
-                    <div class="tooltip">أكتب سنة الميلاد</div>
-                  </div>
+                </div>
+                <div class="date-field">
+                  <input type="number" id="yearInput" class="year-input" min="1966" max="2006" placeholder="سنة"
+                    required>
                 </div>
               </div>
             </div>
-            <!-- End of Date of Birth input -->
 
-            <!-- Gender selection -->
+            <!-- اختيار الجنس -->
             <div class="input-field">
               <label for="sex">الجنس</label>
               <div class="dropdown">
@@ -116,7 +184,7 @@
               </div>
             </div>
 
-            <!-- Marital status -->
+            <!-- اختيار الحالة الزوجية -->
             <div class="input-field">
               <label for="marital-status">الحالة الزوجية</label>
               <div class="dropdown">
@@ -131,19 +199,18 @@
               </div>
             </div>
 
-            <!-- hidden input -->
+            <!-- حقل مخفي للاستخدام المستقبلي -->
             <div class="input-field">
               <input hidden>
             </div>
           </div>
         </div>
 
-        <!-- Identity details section -->
+        <!-- ===== قسم معلومات الهوية ===== -->
         <div class="details ID">
           <span class="title">معلومات بطاقة التعريفية</span>
-
           <div class="fields">
-            <!-- ID Type input -->
+            <!-- حقل رقم البطاقة الموحدة -->
             <div class="input-field">
               <label for="civilID">رقم بطاقة الموحدة/ الهوية</label>
               <input type="text" id="civilID" placeholder="أدخل رقم البطاقة " autocomplete="on" inputmode="numeric"
@@ -151,12 +218,11 @@
             </div>
           </div>
 
-          <!-- Address details section -->
+          <!-- ===== قسم معلومات العنوان ===== -->
           <div class="details personal">
             <span class="title">بيانات عنوان السكن</span>
-
             <div class="fields">
-              <!-- Full Name input -->
+              <!-- اختيار المحافظة -->
               <div class="input-field">
                 <label for="province">المحافظة</label>
                 <div class="input-container">
@@ -165,7 +231,6 @@
                       oninput="filterOptions(this)" onclick="toggleDropdown(this)" required>
                     <span class="icon" aria-hidden="true">&#9660;</span>
                     <div class="dropdown-content" role="listbox">
-
                       <a role="option" onclick="selectOption(this)">البصرة</a>
                       <a role="option" onclick="selectOption(this)">نينوى</a>
                       <a role="option" onclick="selectOption(this)">كربلاء المقدسة</a>
@@ -181,56 +246,44 @@
                       <a role="option" onclick="selectOption(this)">ديالى</a>
                       <a role="option" onclick="selectOption(this)">ميسان</a>
                       <a role="option" onclick="selectOption(this)">المثنى</a>
-
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Mobile Number input -->
+              <!-- حقل رقم الهاتف -->
               <div class="input-field">
                 <label>رقم الهاتف</label>
                 <input class="telephone" type="tel" placeholder="أدخل رقم هاتفك" autocomplete="on" inputmode="tel"
                   required>
               </div>
 
-              <!-- Email input -->
+              <!-- حقل البريد الإلكتروني -->
               <div class="input-field">
                 <label>البريد الاكتروني (أختياري)</label>
                 <input type="email" placeholder="أدخل بريدك الالكتروني" aria-autocomplete="both" autocomplete="on"
                   inputmode="email">
               </div>
-
-              <!-- hidden input -->
-              <!-- <div class="input-field">
-                <input hidden>
-              </div> -->
             </div>
           </div>
-          <!-- End Address Section -->
 
-          <!-- Next button -->
-          <button class="nextBtn">
+          <!-- زر الانتقال للصفحة التالية -->
+          <button type="button" class="nextBtn" onclick="nextStep()">
             <span class="btnText">أضغط التالي</span>
             <i class="uil uil-navigator"></i>
           </button>
-
         </div>
       </div>
-      <!-- End section of the first page -->
 
-      <!-- Second section of the form -->
+      <!-- ========== القسم الثاني: المعلومات التعليمية والمرفقات ========== -->
       <div class="form second">
-        <!-- Collage section -->
+        <!-- ===== قسم المعلومات التعليمية ===== -->
         <div class="details address">
           <span class="title">بيانات الدراسة</span>
-
           <div class="fields">
-
-            <!-- التحصيل الدراسي -->
+            <!-- اختيار التحصيل الدراسي -->
             <div class="input-field">
               <label for="education">التحصيل الدراسي</label>
-              <!-- <input type="text" placeholder="Enter your district" required> -->
               <div class="dropdown">
                 <input type="text" id="education" placeholder="اختر التحصيل العلمي..." aria-haspopup="listbox"
                   oninput="filterOptions(this)" onclick="toggleDropdown(this)" required>
@@ -244,21 +297,20 @@
                 </div>
               </div>
             </div>
-            <!-- نهاية التحصيل الدراسي -->
 
-            <!-- الاختصاص -->
+            <!-- حقل التخصص -->
             <div class="input-field">
               <label for="specialization">الاختصاص</label>
               <input type="text" id="specialization" placeholder="أدخل تخصصك الجامعي" autocomplete="on" required>
             </div>
 
-            <!-- أسم الكلية  -->
+            <!-- حقل اسم الكلية -->
             <div class="input-field">
               <label>أسم الكلية / الجامعة</label>
               <input type="text" placeholder="أدخل أسم الكلية / الجامعة" autocomplete="on" required>
             </div>
 
-            <!-- سنة التخرج -->
+            <!-- اختيار سنة التخرج -->
             <div class="input-field">
               <label>سنة التخرج</label>
               <div class="container-year">
@@ -269,14 +321,14 @@
                 </div>
               </div>
             </div>
-            <!-- نهاية سنة التخرج -->
           </div>
         </div>
 
-        <!-- CV section -->
+        <!-- ===== قسم المرفقات والسيرة الذاتية ===== -->
         <div class="details family">
-          <span class="title"> المرفقات (السيرة الذاتية)</span>
+          <span class="title">المرفقات (السيرة الذاتية)</span>
           <div class="fields">
+            <!-- منطقة رفع الملفات -->
             <div class="container-cv">
               <div class="upload-box" id="uploadBox">
                 <p>Accepted formats: PDF, Only 5MB</p>
@@ -284,49 +336,50 @@
                 <p>Drag & Drop your files here</p>
                 <p>OR</p>
                 <p>انقر لاختيار الملفات</p>
-                <!-- <input type="file" id="fileInput" multiple hidden> -->
                 <input type="file" id="fileInput" accept="application/pdf" multiple hidden>
               </div>
+              <!-- شريط تقدم رفع الملف -->
               <div class="progress-container" id="progressContainer">
                 <div class="progress-bar" id="progressBar"></div>
                 <div class="progress-text" id="progressText">0%</div>
               </div>
+              <!-- معلومات الملف -->
               <div class="file-info" id="fileInfo"></div>
+              <!-- رسائل الخطأ والنجاح -->
               <div class="error-message" id="errorMessage">❌ يُسمح فقط بتحميل ملفات PDF</div>
               <div class="success-message" id="successMessage">✔ تم تحميل الملف بنجاح!</div>
             </div>
-            <script src="upload_Ui.js"></script>
           </div>
-          <!-- قسم الملاحظات -->
+
+          <!-- ===== قسم الملاحظات الإضافية ===== -->
           <div class="details address">
             <span class="title">قسم الملاحظات</span>
-
             <div class="fields">
               <div class="input-field">
                 <div class="note-container">
                   <h2>📝 مفكرة الملاحظات</h2>
                   <textarea id="note" placeholder="اكتب ملاحظاتك هنا..."></textarea>
-                  <div class="btn-container">
-                  </div>
+                  <div class="btn-container"></div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- نهاية قسم الملاحظات -->
 
-          <!-- Navigation buttons -->
+          <!-- ===== أزرار التحكم ===== -->
           <div class="buttons">
-            <!-- Back button -->
+            <!-- زر العودة للصفحة السابقة -->
             <div class="backBtn">
               <i class="uil uil-navigator"></i>
               <span class="btnText">رجوع</span>
             </div>
 
-            <!-- Submit button -->
+            <!-- زر إرسال النموذج -->
             <button type="submit" class="submit">
               <span class="btnText">ارسال</span>
               <i class="uil uil-navigator"></i>
             </button>
+
+            <!-- زر طباعة النموذج -->
             <button onclick="printForm()">
               <span class="btnText">طباعة</span>
               <span class="material-symbols-outlined">print</span>
@@ -337,22 +390,14 @@
     </form>
   </div>
 
+  <!-- ========== ملفات JavaScript ========== -->
+  <script src="js/script.js"></script>
+  <script src="js/upload_Ui.js"></script>
+  <script src="js/year-valid.js"></script>
+  <script src="js/date_of_birth.js"></script>
+  <script src="js/drop_down.js"></script>
+  <script src="js/PopUp.js"></script>
 
-  <script src="script.js"></script>
-  <script src="drop_down.js"></script>
-  <script src="year-valid.js"></script>
-  <script src="date_of_birth.js"></script>
-  <script src="toggle.js"></script>
-  <script src="upload-cv.js"></script>
-  <script src="PopUp.js"></script>
-  <script>
-    // توليد رقم طلب عشوائي عند تحميل الصفحة
-    document.getElementById("request-number").innerText = Math.floor(10000 + Math.random() * 90000);
-
-    function printForm() {
-      window.print();
-    }
-  </script>
 </body>
 
 </html>
