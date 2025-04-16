@@ -2,20 +2,19 @@
 .DS_Store
 Thumbs.db
 
-# ملفات المحرر
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# ملفات التبعيات
-node_modules/
-vendor/
-
 # ملفات البيئة
 .env
 .env.local
 .env.*.local
+
+# مجلدات التبعيات
+/node_modules
+/vendor
+
+# ملفات البناء
+/dist
+/build
+/out
 
 # ملفات السجلات
 *.log
@@ -23,12 +22,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# ملفات البناء
-dist/
-build/
-out/
+# ملفات المحرر
+.idea/
+.vscode/
+*.swp
+*.swo
 
 # ملفات مؤقتة
 *.tmp
-*.temp
-.cache/ 
+*.temp 
