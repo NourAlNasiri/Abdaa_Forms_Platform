@@ -144,7 +144,6 @@ function formatFileSize(bytes) {
     
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
-
 /**
  * عرض رسالة خطأ
  * @param {string} message - رسالة الخطأ

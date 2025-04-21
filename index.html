@@ -30,18 +30,62 @@
   <!-- ========== نافذة منبثقة لعرض الشروط والأحكام ========== -->
   <div class="overlay" id="popupOverlay">
     <div class="popup">
-      <h2 class="cairo-welcom">مرحبا بكم</h2>
-      <p>يرجى قراءة الشروط بعناية قبل التقديم على أستمارة أبداع.</p>
-      <ul>
-        <li>يجب ان لا يقل عمر المتقدم عن 18 سنة </li>
-        <li>استخدم رقم موبايل او بريد الالكتروني صالحًا للتواصل.</li>
-        <li>صحة ودقة المعلومات المثبتة بالأستمارة ، مسؤولية المتقدم.</li>
-        <li>عليك التأكد من صحة البيانات المدخلة قبل الضغط على زر ارسال الخاص بالحفظ لعدم أمكانية العودة الى حقول
-          الاستمارة.</li>
-        <li>لطباعة البيانات المدخلة ، أضغط على زر طباعة المثبت بالاستمارة.</li>
-        <li>عليك الاحتفاظ برقم الأستمارة الخاص بك بعد أستكمال عملية خزن البيانات.</li>
+      <h2 class="cairo-welcom">مرحباً بكم </h2>
+      <p class="terms-intro">يرجى قراءة الشروط والأحكام التالية بعناية قبل التقديم على استمارة إبداع:</p>
+      <ul class="terms-list">
+        <li><i class="fas fa-check-circle"></i> يجب أن يكون عمر المتقدم 18 سنة أو أكثر</li>
+        <li><i class="fas fa-check-circle"></i> يرجى استخدام رقم هاتف أو بريد إلكتروني صالح للتواصل</li>
+        <li><i class="fas fa-check-circle"></i> صحة ودقة المعلومات المدخلة في الاستمارة هي مسؤولية المتقدم</li>
+        <li><i class="fas fa-check-circle"></i> يرجى مراجعة جميع البيانات قبل الضغط على زر "إرسال" حيث لا يمكن تعديلها بعد الحفظ</li>
+        <li><i class="fas fa-check-circle"></i> يمكنك طباعة نسخة من بياناتك بالضغط على زر "طباعة"</li>
+        <li><i class="fas fa-check-circle"></i> احتفظ برقم الاستمارة الخاص بك للمتابعة أو الاستفسار لاحقاً</li>
       </ul>
-      <button onclick="closePopup()">حسنًا</button>
+      <button onclick="closePopup()" class="accept-btn">
+        <i class="fas fa-check"></i>
+        موافق
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== نافذة منبثقة لعرض البيانات قبل الإرسال ========== -->
+  <div class="overlay" id="confirmationOverlay" style="display: none;">
+    <div class="popup confirmation-popup">
+      <div class="popup-header">
+        <h2 class="cairo-welcom">تأكيد البيانات</h2>
+      </div>
+      <div class="confirmation-content">
+        <div class="data-section">
+          <div class="section-header">
+            <i class="fas fa-user"></i>
+            <h3>المعلومات الشخصية</h3>
+          </div>
+          <div id="personalInfo" class="data-container"></div>
+        </div>
+        <div class="data-section">
+          <div class="section-header">
+            <i class="fas fa-id-card"></i>
+            <h3>معلومات الهوية والعنوان</h3>
+          </div>
+          <div id="identityInfo" class="data-container"></div>
+        </div>
+        <div class="data-section">
+          <div class="section-header">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>البيانات الدراسية</h3>
+          </div>
+          <div id="educationInfo" class="data-container"></div>
+        </div>
+      </div>
+      <div class="confirmation-buttons">
+        <button onclick="confirmSubmission()" class="confirm-btn">
+          <i class="fas fa-check"></i>
+          تأكيد الإرسال
+        </button>
+        <button onclick="cancelSubmission()" class="cancel-btn">
+          <i class="fas fa-times"></i>
+          إلغاء
+        </button>
+      </div>
     </div>
   </div>
 
@@ -59,46 +103,7 @@
             <h1 class="card-title">وزارة الاتصالات العراقية</h1>
             <header class="cairo-play">
               أستــــمــــــارة أبــــــــــــــــداع
-              <span class="info-icon" onclick="toggleDeveloperInfo()"><i class="fas fa-info-circle"></i></span>
             </header>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- قسم معلومات المطور المنبثق -->
-    <div class="developer-info-popup" id="developerInfoPopup">
-      <div class="popup-content">
-        <div class="popup-header">
-          <h3>معلومات المطور</h3>
-          <button class="close-btn" onclick="toggleDeveloperInfo()">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="popup-body">
-          <div class="developer-profile">
-            <img src="img/شعار_وزارة_الاتصالات_العراقية.png" alt="صورة المطور" class="developer-avatar">
-            <h4>نور الدين محمد جاسم</h4>
-            <p class="developer-title">مطور واجهات أمامية</p>
-          </div>
-          <div class="developer-details">
-            <div class="detail-item">
-              <i class="fas fa-code"></i>
-              <p>تطوير واجهات المستخدم</p>
-            </div>
-            <div class="detail-item">
-              <i class="fas fa-paint-brush"></i>
-              <p>تصميم واجهات تفاعلية</p>
-            </div>
-            <div class="detail-item">
-              <i class="fas fa-mobile-alt"></i>
-              <p>تصميم متجاوب</p>
-            </div>
-          </div>
-          <div class="project-info">
-            <h5>أستمارة أبداع</h5>
-            <p>تم تطوير هذا الموقع لخدمة وزارة الاتصالات العراقية</p>
-            <p class="copyright">جميع الحقوق محفوظة &copy; 2025</p>
           </div>
         </div>
       </div>
@@ -123,7 +128,7 @@
               <label for="Prostration">التقديم على: </label>
               <div class="dropdown">
                 <input type="text" id="Prostration" placeholder="اختر من القائمة..." aria-haspopup="listbox"
-                  oninput="filterOptions(this)" onclick="toggleDropdown(this)" required>
+                  oninput="filterOptions(this)" onclick="toggleDropdown(this)" required readonly>
                 <span class="icon" aria-hidden="true">&#9660;</span>
                 <div class="dropdown-content" role="listbox">
                   <a role="option" onclick="selectOption(this)">شركة الرخصة الرابعة </a>
@@ -134,21 +139,21 @@
 
             <!-- حقول تاريخ الميلاد -->
             <div class="input-field">
-              <label for="birthDate">تاريخ الميلاد<span> *</span></label>
-              <div class="birth-date-container">
+              <label>تاريخ الميلاد</label>
+              <div class="date-inputs">
                 <div class="date-field">
-                  <select id="day" class="date-select" required>
-                    <option value="" disabled selected>يوم</option>
+                  <select name="birthDay" required>
+                    <option value="">اليوم</option>
                     <script>
-                      for (let i = 1; i <= 31; i++) {
+                      for(let i = 1; i <= 31; i++) {
                         document.write(`<option value="${i}">${i}</option>`);
                       }
                     </script>
                   </select>
                 </div>
                 <div class="date-field">
-                  <select id="month" class="date-select" required>
-                    <option value="" disabled selected>شهر</option>
+                  <select name="birthMonth" required>
+                    <option value="">الشهر</option>
                     <option value="1">يناير</option>
                     <option value="2">فبراير</option>
                     <option value="3">مارس</option>
@@ -164,8 +169,10 @@
                   </select>
                 </div>
                 <div class="date-field">
-                  <input type="number" id="yearInput" class="year-input" min="1966" max="2006" placeholder="سنة"
-                    required>
+                  <div class="tooltip-container">
+                    <input type="number" name="birthYear" class="yearPerson" placeholder="السنة"  required>
+                    <div class="tooltip">أدخل السنة يدوياً </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -175,7 +182,7 @@
               <label for="sex">الجنس</label>
               <div class="dropdown">
                 <input type="text" id="sex" placeholder="اختر من القائمة..." aria-haspopup="listbox"
-                  oninput="filterOptions(this)" onclick="toggleDropdown(this)" required>
+                  oninput="filterOptions(this)" onclick="toggleDropdown(this)" required readonly>
                 <span class="icon" aria-hidden="true">&#9660;</span>
                 <div class="dropdown-content" role="listbox">
                   <a role="option" onclick="selectOption(this)">ذكـــر</a>
@@ -189,7 +196,7 @@
               <label for="marital-status">الحالة الزوجية</label>
               <div class="dropdown">
                 <input type="text" id="marital-status" placeholder="أختر من القائمة..." aria-haspopup="listbox"
-                  oninput="filterOptions(this)" onclick="toggleDropdown(this)" required>
+                  oninput="filterOptions(this)" onclick="toggleDropdown(this)" required readonly>
                 <span class="icon" aria-hidden="true">&#9660;</span>
                 <div class="dropdown-content" role="listbox">
                   <a role="option" onclick="selectOption(this)">أعزب</a>
@@ -228,7 +235,7 @@
                 <div class="input-container">
                   <div class="dropdown">
                     <input type="text" placeholder="اختر من القائمة المحافظة..." aria-haspopup="listbox"
-                      oninput="filterOptions(this)" onclick="toggleDropdown(this)" required>
+                      oninput="filterOptions(this)" onclick="toggleDropdown(this)" required readonly>
                     <span class="icon" aria-hidden="true">&#9660;</span>
                     <div class="dropdown-content" role="listbox">
                       <a role="option" onclick="selectOption(this)">البصرة</a>
@@ -254,8 +261,11 @@
               <!-- حقل رقم الهاتف -->
               <div class="input-field">
                 <label>رقم الهاتف</label>
-                <input class="telephone" type="tel" placeholder="أدخل رقم هاتفك" autocomplete="on" inputmode="tel"
+                <input class="telephone" type="tel" id="phoneNumber" placeholder="أدخل رقم هاتفك" autocomplete="on" inputmode="tel"
                   required>
+                <div class="error-message" id="phoneError" style="display: none; color: red; font-size: 12px; margin-top: 5px;">
+                  أدخل رقم هاتف مكون من 11 رقم فقط
+                </div>
               </div>
 
               <!-- حقل البريد الإلكتروني -->
@@ -286,7 +296,7 @@
               <label for="education">التحصيل الدراسي</label>
               <div class="dropdown">
                 <input type="text" id="education" placeholder="اختر التحصيل العلمي..." aria-haspopup="listbox"
-                  oninput="filterOptions(this)" onclick="toggleDropdown(this)" required>
+                  oninput="filterOptions(this)" onclick="toggleDropdown(this)" required readonly>
                 <span class="icon" aria-hidden="true">&#9660;</span>
                 <div class="dropdown-content" role="listbox">
                   <a role="option" onclick="selectOption(this)">دبلوم</a>
@@ -302,12 +312,18 @@
             <div class="input-field">
               <label for="specialization">الاختصاص</label>
               <input type="text" id="specialization" placeholder="أدخل تخصصك الجامعي" autocomplete="on" required>
+              <div class="error-message" id="specializationError" style="display: none; color: red; font-size: 12px; margin-top: 5px;">
+                هذا الحقل مطلوب
+              </div>
             </div>
 
             <!-- حقل اسم الكلية -->
             <div class="input-field">
               <label>أسم الكلية / الجامعة</label>
-              <input type="text" placeholder="أدخل أسم الكلية / الجامعة" autocomplete="on" required>
+              <input type="text" id="collegeName" placeholder="أدخل أسم الكلية / الجامعة" autocomplete="on" required>
+              <div class="error-message" id="collegeError" style="display: none; color: red; font-size: 12px; margin-top: 5px;">
+                هذا الحقل مطلوب
+              </div>
             </div>
 
             <!-- اختيار سنة التخرج -->
@@ -331,11 +347,12 @@
             <!-- منطقة رفع الملفات -->
             <div class="container-cv">
               <div class="upload-box" id="uploadBox">
-                <p>Accepted formats: PDF, Only 5MB</p>
-                <img src="img/upload.png" alt="Upload Icon">
-                <p>Drag & Drop your files here</p>
-                <p>OR</p>
-                <p>انقر لاختيار الملفات</p>
+                <p>صيغ الملفات المقبولة: PDF فقط</p>
+                <p>الحد الأقصى لحجم الملف: 5 ميجابايت</p>
+                <img src="img/upload.png" alt="أيقونة رفع الملفات">
+                <p>اسحب وأفلت ملفك هنا</p>
+                <p>أو</p>
+                <p>انقر لاختيار الملف</p>
                 <input type="file" id="fileInput" accept="application/pdf" multiple hidden>
               </div>
               <!-- شريط تقدم رفع الملف -->
@@ -346,8 +363,8 @@
               <!-- معلومات الملف -->
               <div class="file-info" id="fileInfo"></div>
               <!-- رسائل الخطأ والنجاح -->
-              <div class="error-message" id="errorMessage">❌ يُسمح فقط بتحميل ملفات PDF</div>
-              <div class="success-message" id="successMessage">✔ تم تحميل الملف بنجاح!</div>
+              <div class="error-message" id="errorMessage">❌ يرجى التأكد من أن الملف بصيغة PDF وحجمه لا يتجاوز 5 ميجابايت</div>
+              <div class="success-message" id="successMessage">✔ تم رفع الملف بنجاح!</div>
             </div>
           </div>
 
@@ -380,7 +397,7 @@
             </button>
 
             <!-- زر طباعة النموذج -->
-            <button onclick="printForm()">
+            <button type="button" onclick="printForm(); return false;">
               <span class="btnText">طباعة</span>
               <span class="material-symbols-outlined">print</span>
             </button>
@@ -390,6 +407,25 @@
     </form>
   </div>
 
+  <!-- ========== الفوتر ========== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-bottom">
+        <p>وزارة الاتصالات العراقية &copy; 2025 جميع الحقوق محفوظة</p>
+        <p><span class="developer-name">  </span></p>
+      </div>
+      <div class="footer-section">
+        <h3>تواصل معنا</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/moc.gov.iq" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+          <a href="https://x.com/moc24wzart" target="_blank" class="social-link"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/moc.iraq/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://moc.gov.iq/" target="_blank" class="social-link"><img src="img/شعار_وزارة_الاتصالات_العراقية.png" alt="شعار وزارة الاتصالات" class="ministry-logo"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <!-- ========== ملفات JavaScript ========== -->
   <script src="js/script.js"></script>
   <script src="js/upload_Ui.js"></script>
@@ -397,6 +433,52 @@
   <script src="js/date_of_birth.js"></script>
   <script src="js/drop_down.js"></script>
   <script src="js/PopUp.js"></script>
+  <script src="js/phone-validation.js"></script>
+  <script src="js/form-validation.js"></script>
+  <script src="js/print.js"></script>
+  
+  <!-- كود إضافة السنوات إلى القائمة المنسدلة -->
+  <script>
+    // إضافة سنوات التخرج في القائمة المنسدلة
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('تم تحميل الصفحة، جاري إضافة السنوات إلى القائمة المنسدلة...');
+      
+      const yearSelect = document.getElementById('yearSelect');
+      
+      // التحقق من وجود العنصر قبل محاولة إضافة الخيارات
+      if (yearSelect) {
+        console.log('تم العثور على عنصر القائمة المنسدلة للسنة');
+        
+        // إزالة الخيار الافتراضي إذا كان موجودًا
+        yearSelect.innerHTML = '';
+        
+        // إضافة خيار افتراضي
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'اختر سنة التخرج';
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        yearSelect.appendChild(defaultOption);
+        
+        const currentYear = new Date().getFullYear();
+        const startYear = currentYear - 30; // نبدأ من 30 سنة مضت
+        
+        console.log(`إضافة السنوات من ${startYear} إلى ${currentYear}`);
+        
+        // إضافة السنوات للقائمة المنسدلة
+        for (let year = currentYear; year >= startYear; year--) {
+          const option = document.createElement('option');
+          option.value = year;
+          option.textContent = year;
+          yearSelect.appendChild(option);
+        }
+        
+        console.log(`تم إضافة ${yearSelect.options.length} سنة إلى القائمة المنسدلة`);
+      } else {
+        console.error('لم يتم العثور على عنصر القائمة المنسدلة للسنة');
+      }
+    });
+  </script>
 
 </body>
 
